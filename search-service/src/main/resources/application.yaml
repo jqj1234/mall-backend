@@ -1,0 +1,11 @@
+server:
+  port: 8086
+feign:
+  okhttp:
+    # 开启feign底层请求调用http客户端为okhttp
+    enabled: true
+hm:
+  swagger:
+    title: 搜索服务接口文档
+    description: 搜索服务接口文档
+    package: com.hmall.search.controller

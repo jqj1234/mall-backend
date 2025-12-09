@@ -1,0 +1,17 @@
+server:
+  port: 8082
+feign:
+  okhttp:
+    # 开启feign底层请求调用http客户端为okhttp
+    enabled: true
+  sentinel:
+    enabled: true # 开启线程隔离
+hm:
+  db:
+    database: hm-cart
+  swagger:
+    title: 购物车服务接口文档
+    description: 购物车服务接口文档
+    package: com.hmall.cart.controller
+seata:
+  data-source-proxy-mode: AT

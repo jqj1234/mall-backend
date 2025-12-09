@@ -1,0 +1,52 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: hm-gateway
+  cloud:
+    nacos:
+      server-addr: 47.108.75.31:8848
+    gateway:
+      routes:
+        - id: cart
+          uri: lb://cart-service
+          predicates:
+            - Path=/carts/**
+        - id: trade
+          uri: lb://trade-service
+          predicates:
+            - Path=/orders/**
+        - id: item
+          uri: lb://item-service
+          predicates:
+            - Path=/items/**,/seckill/**
+        - id: user
+          uri: lb://user-service
+          predicates:
+            - Path=/users/**,/addresses/**
+        - id: pay
+          uri: lb://pay-service
+          predicates:
+            - Path=/pay-orders/**
+        - id: search
+          uri: lb://search-service
+          predicates:
+              - Path=/search/**
+#      default-filters: # 默认过滤器,对所有路由生效
+#        - PrintAny=1,2,3
+hm:
+  jwt:
+    location: classpath:hmall.jks
+    alias: hmall
+    password: hmall123
+    tokenTTL: 30m
+  auth:
+    excludePaths:
+      - /search/**
+      - /users/login
+      - /users/register
+      - /users/captcha
+      - /items/**
+      - /seckill/**
+      - /hi
+# keytool -genkeypair -alias hmall -keyalg RSA -keypass hmall123 -keystore hmall.jks -storepass hmall123

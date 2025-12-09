@@ -1,0 +1,22 @@
+server:
+  port: 8081
+feign:
+  okhttp:
+    # 开启feign底层请求调用http客户端为okhttp
+    enabled: true
+  sentinel:
+    enabled: true #开启Feign对Sentinel的支持
+hm:
+  db:
+    database: hm-item
+  swagger:
+    title: 商品服务接口文档
+    description: 商品服务接口文档
+    package: com.hmall.item.controller
+  alioss:
+    endpoint: ${hm.alioss.endpoint}
+    access-key-id: ${hm.alioss.access-key-id}
+    access-key-secret: ${hm.alioss.access-key-secret}
+    bucket-name: ${hm.alioss.bucket-name}
+seata:
+  data-source-proxy-mode: AT

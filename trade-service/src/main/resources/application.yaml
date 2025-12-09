@@ -1,0 +1,15 @@
+server:
+  port: 8084
+feign:
+  okhttp:
+    # 开启feign底层请求调用http客户端为okhttp
+    enabled: true
+hm:
+  db:
+    database: hm-trade
+  swagger:
+    title: 交易服务接口文档
+    description: 交易服务接口文档
+    package: com.hmall.trade.controller
+seata:
+  data-source-proxy-mode: AT

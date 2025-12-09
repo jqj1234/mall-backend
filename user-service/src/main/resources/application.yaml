@@ -1,0 +1,21 @@
+server:
+  port: 8083
+feign:
+  okhttp:
+    # 开启feign底层请求调用http客户端为okhttp
+    enabled: true
+  sentinel:
+    enabled: true
+hm:
+  db:
+    database: hm-user
+  swagger:
+    title: 用户服务接口文档
+    description: 用户服务接口文档
+    package: com.hmall.user.controller
+  jwt:
+    location: classpath:hmall.jks
+    alias: hmall
+    password: hmall123
+    tokenTTL: 300m
+# keytool -genkeypair -alias hmall -keyalg RSA -keypass hmall123 -keystore hmall.jks -storepass hmall123

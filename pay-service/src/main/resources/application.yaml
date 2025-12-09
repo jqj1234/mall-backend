@@ -1,0 +1,15 @@
+server:
+  port: 8085
+feign:
+  okhttp:
+    # 开启feign底层请求调用http客户端为okhttp
+    enabled: true
+  sentinel:
+    enabled: true # 开启Feign对sentinel的支持
+hm:
+  db:
+    database: hm-pay
+  swagger:
+    title: 支付服务接口文档
+    description: 支付服务接口文档
+    package: com.hmall.pay.controller

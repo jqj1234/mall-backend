@@ -1,0 +1,65 @@
+version: '3.7'
+
+services:
+  hm-gateway:
+    image: hm-gateway:latest
+    container_name: hm-gateway
+    ports:
+      - "8080:8080"
+    environment:
+      - TZ=Asia/Shanghai
+    restart: unless-stopped
+
+  cart-service:
+    image: cart-service:latest
+    container_name: cart-service
+    ports:
+      - "8082:8082"
+    environment:
+      - TZ=Asia/Shanghai
+    restart: unless-stopped
+
+  item-service:
+    image: item-service:latest
+    container_name: item-service
+    ports:
+      - "8081:8081"
+    environment:
+      - TZ=Asia/Shanghai
+    restart: unless-stopped
+
+  pay-service:
+    image: pay-service:latest
+    container_name: pay-service
+    ports:
+      - "8085:8085"
+    environment:
+      - TZ=Asia/Shanghai
+    restart: unless-stopped
+
+  search-service:
+    image: search-service:latest
+    container_name: search-service
+    ports:
+      - "8086:8086"
+    environment:
+      - TZ=Asia/Shanghai
+    restart: unless-stopped
+
+  trade-service:
+    image: trade-service:latest
+    container_name: trade-service
+    ports:
+      - "8084:8084"
+    environment:
+      - TZ=Asia/Shanghai
+    restart: unless-stopped
+
+  user-service:
+    image: user-service:latest
+    container_name: user-service
+    ports:
+      - "8083:8083"
+    environment:
+      - TZ=Asia/Shanghai
+    restart: unless-stopped
