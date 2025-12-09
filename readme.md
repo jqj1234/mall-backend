@@ -10,6 +10,7 @@ SpringCloud+SpringBoot+PyTorch+Flask+Mybatis+JWT+Redis+MySQL+Nacos+OpenFeign+Ngi
 - 图像检索商品模块，基于深度学习PyTorch框架构建Swin Transformer模型提取图片特征，将商品图片嵌入为768维向量。
 - 语义检索商品模块，基于sentence-bert的预训练模型处理商品描述文本，将商品描述文本嵌入为768维语义向量。
 - 采用Elasticsearch存储商品以及图文向量，构建HNSW近似最近邻索引，采用余弦相似度实现毫秒级检索。在8万+商品库查询测试中，返回Top-20最相似结果平均耗时仅 9.47ms（num_candidates=1000）。
+- 采用Redis的Zset以秒杀开始时间为得分(score)，商品id为成员(member)缓存秒杀商品，通过游标实现秒杀商品列表的快速查询，提升查询效率。
 - 基于Redis+Lua脚本实现商品秒杀，采用Redis预扣减库存和资格校验提升并发，发送消息到RabbitMQ异步创建订单。
 - 采用消息队列RabbitMQ进行异步监听，实现商品的上下架，以及使用延迟队列实现订单超时未支付的取消（包括秒杀订单库存回滚、订单超时取消）。
 - 采用Seata处理分布式事务、Sentinel进行限流熔断。
